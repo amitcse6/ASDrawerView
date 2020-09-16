@@ -8,8 +8,13 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+protocol BaseViewControllerDelegate {
+    func menuAction(_ sender: Any)
+}
 
+class BaseViewController: UIViewController {
+    var delegate: BaseViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -7,18 +7,41 @@
 //
 
 import UIKit
+import ASDrawerView
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var drawerView: ASDrawerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let centerVC = storyboard.instantiateViewController(withIdentifier: "CenterViewController") as? CenterViewController
+        let leftVC = storyboard.instantiateViewController(withIdentifier: "LeftViewController") as? LeftViewController
+        let rightVC = storyboard.instantiateViewController(withIdentifier: "RightViewController") as? RightViewController
+        
+        centerVC?.delegate = self
+        leftVC?.delegate = self
+        rightVC?.delegate = self
+        
+        drawerView.setViewController(vc: centerVC, .closed, direction: .center, animated: false, allowUserInterruption: true) {}
+        
+        drawerView.setViewController(vc: leftVC, .closed, direction: .left, animated: false, allowUserInterruption: true) {}
+        
+        drawerView.setViewController(vc: rightVC, .closed, direction: .right, animated: false, allowUserInterruption: true) {}
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
+extension ViewController: BaseViewControllerDelegate {
+    func menuAction(_ sender: Any) {
+        drawerView.open {
+        }
+    }
 }
 

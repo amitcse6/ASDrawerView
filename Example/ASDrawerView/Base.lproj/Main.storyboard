@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,13 +16,111 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0xe-Uf-tOn" customClass="ASDrawerView" customModule="ASDrawerView">
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <constraints>
+                            <constraint firstItem="0xe-Uf-tOn" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="Acu-nr-CTs"/>
+                            <constraint firstItem="0xe-Uf-tOn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Kdx-FM-628"/>
+                            <constraint firstItem="0xe-Uf-tOn" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="MWl-kY-wfH"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="0xe-Uf-tOn" secondAttribute="bottom" constant="20" id="aMh-Xb-QPv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="drawerView" destination="0xe-Uf-tOn" id="LA2-nk-unB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
+        </scene>
+        <!--Center View Controller-->
+        <scene sceneID="gH9-Kb-mZM">
+            <objects>
+                <viewController storyboardIdentifier="CenterViewController" id="jIA-sn-xeu" customClass="CenterViewController" customModule="ASDrawerView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SkX-O9-Afh"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ffv-sI-9Do"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bLS-9N-jKP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDf-au-OBX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZS-s3-Trt">
+                                        <rect key="frame" x="16" y="16" width="39" height="48"/>
+                                        <state key="normal" title="Menu">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="menuAction:" destination="jIA-sn-xeu" eventType="touchUpInside" id="AXp-Rs-1dx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="7nU-Zc-uxU"/>
+                                    <constraint firstItem="OZS-s3-Trt" firstAttribute="top" secondItem="bDf-au-OBX" secondAttribute="top" constant="16" id="DXF-aY-yEU"/>
+                                    <constraint firstAttribute="bottom" secondItem="OZS-s3-Trt" secondAttribute="bottom" constant="16" id="d2u-ox-kXn"/>
+                                    <constraint firstItem="OZS-s3-Trt" firstAttribute="leading" secondItem="bDf-au-OBX" secondAttribute="leading" constant="16" id="lYA-dU-VlS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bDf-au-OBX" firstAttribute="top" secondItem="SkX-O9-Afh" secondAttribute="bottom" id="Mkp-P0-SBq"/>
+                            <constraint firstAttribute="trailing" secondItem="bDf-au-OBX" secondAttribute="trailing" id="Sck-EE-Qf1"/>
+                            <constraint firstItem="bDf-au-OBX" firstAttribute="leading" secondItem="bLS-9N-jKP" secondAttribute="leading" id="See-Iv-GGJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="20w-0B-Kog" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844.92753623188412" y="132.58928571428572"/>
+        </scene>
+        <!--Right View Controller-->
+        <scene sceneID="5kg-14-cwz">
+            <objects>
+                <viewController storyboardIdentifier="RightViewController" id="OsI-H5-MfM" customClass="RightViewController" customModule="ASDrawerView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vEr-lV-Yz2"/>
+                        <viewControllerLayoutGuide type="bottom" id="ieu-PB-cgC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xnW-rL-vig">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NV6-kj-YyL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2214" y="133"/>
+        </scene>
+        <!--Left View Controller-->
+        <scene sceneID="49i-hj-w2e">
+            <objects>
+                <viewController storyboardIdentifier="LeftViewController" id="n2H-1G-cRb" customClass="LeftViewController" customModule="ASDrawerView_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VkF-0d-3qr"/>
+                        <viewControllerLayoutGuide type="bottom" id="vGj-bU-BOk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ar4-GI-AM7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e31-kC-PjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1509" y="133"/>
         </scene>
     </scenes>
 </document>

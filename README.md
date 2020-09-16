@@ -5,7 +5,15 @@
 [![License](https://img.shields.io/cocoapods/l/ASDrawerView.svg?style=flat)](https://cocoapods.org/pods/ASDrawerView)
 [![Platform](https://img.shields.io/cocoapods/p/ASDrawerView.svg?style=flat)](https://cocoapods.org/pods/ASDrawerView)
 
+Screenshots
+---------
+![ASDrawerView Screenshots](asdrawerView_screenshot.gif)
+
 ## Example
+
+```swift
+import ASDrawerView
+```
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
