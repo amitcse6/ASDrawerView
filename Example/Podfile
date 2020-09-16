@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ASDrawerView_Example' do
+  pod 'ASDrawerView', :path => '../'
+
+  target 'ASDrawerView_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
