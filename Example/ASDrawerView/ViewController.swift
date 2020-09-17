@@ -9,7 +9,7 @@
 import UIKit
 import ASDrawerView
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var drawerView: ASDrawerView!
     
     override func viewDidLoad() {
@@ -26,10 +26,9 @@ class ViewController: UIViewController {
         rightVC?.delegate = self
         drawerView?.delegate = self
         
+        drawerView.addEdgeGestureRecognizer(view: self.view, delegate: self, completionBlock: {})
         drawerView.setViewController(vc: centerVC, .closed, direction: .center, animated: false, allowUserInterruption: true) {}
-        
         drawerView.setViewController(vc: leftVC, .closed, direction: .left, animated: false, allowUserInterruption: true) {}
-        
         drawerView.setViewController(vc: rightVC, .closed, direction: .right, animated: false, allowUserInterruption: true) {}
     }
     

@@ -15,7 +15,7 @@ public enum ASDrawerState {
 }
 
 public enum ASDrawerDirection {
-    case left
     case center
+    case left
     case right
 }
