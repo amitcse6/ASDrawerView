@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         centerVC?.delegate = self
         leftVC?.delegate = self
         rightVC?.delegate = self
+        drawerView?.delegate = self
         
         drawerView.setViewController(vc: centerVC, .closed, direction: .center, animated: false, allowUserInterruption: true) {}
         
@@ -36,6 +37,9 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+extension ViewController: ASDrawerViewDelegate {
 }
 
 extension ViewController: BaseViewControllerDelegate {

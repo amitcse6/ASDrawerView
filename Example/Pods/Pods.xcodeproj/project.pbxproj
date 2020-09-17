@@ -14,6 +14,7 @@
 		14AD81D52FAD9CF2C065C61FB00C3B4F /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568279DE47DC3AB91598E1317503995 /* UIImage+Diff.m */; };
 		14C511527597E5846AB2627F791C7D8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A9972B9D9103B54DB950893FAF104 /* QuartzCore.framework */; };
 		1600BD64B76B492B5B53110A0FFDBCCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD4ED544B638D07C7D755AF1C27116A /* Foundation.framework */; };
+		2881FB492512FDBA00769BE8 /* ASDrawerView+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2881FB482512FDB900769BE8 /* ASDrawerView+UIView.swift */; };
 		2897162C2512657C00D18C54 /* ASDrawerView+Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289716252512657C00D18C54 /* ASDrawerView+Set.swift */; };
 		2897162D2512657C00D18C54 /* ASDrawerView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289716262512657C00D18C54 /* ASDrawerView+Init.swift */; };
 		2897162E2512657C00D18C54 /* ASDrawerView+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289716272512657C00D18C54 /* ASDrawerView+Enum.swift */; };
@@ -82,6 +83,7 @@
 		235A78CFFA6D8B8D86CACD733531CB13 /* UIImage+Compare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Compare.m"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.m"; sourceTree = "<group>"; };
 		277B6BE10C665F515606A22FD60C6DCC /* FBSnapshotTestCase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCase.m; path = FBSnapshotTestCase/FBSnapshotTestCase.m; sourceTree = "<group>"; };
 		284833D18C244D2B42966B6EE425AA59 /* UIImage+Snapshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Snapshot.h"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.h"; sourceTree = "<group>"; };
+		2881FB482512FDB900769BE8 /* ASDrawerView+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASDrawerView+UIView.swift"; sourceTree = "<group>"; };
 		289716252512657C00D18C54 /* ASDrawerView+Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASDrawerView+Set.swift"; sourceTree = "<group>"; };
 		289716262512657C00D18C54 /* ASDrawerView+Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASDrawerView+Init.swift"; sourceTree = "<group>"; };
 		289716272512657C00D18C54 /* ASDrawerView+Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASDrawerView+Enum.swift"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				289716292512657C00D18C54 /* ASDrawerView+Event.swift */,
 				2897162A2512657C00D18C54 /* ASDrawerView+Constraint.swift */,
 				2897162B2512657C00D18C54 /* ASDrawerView.swift */,
+				2881FB482512FDB900769BE8 /* ASDrawerView+UIView.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				289716302512657C00D18C54 /* ASDrawerView+Event.swift in Sources */,
 				2897162D2512657C00D18C54 /* ASDrawerView+Init.swift in Sources */,
 				2897162F2512657C00D18C54 /* ASDrawerView+Get.swift in Sources */,
+				2881FB492512FDBA00769BE8 /* ASDrawerView+UIView.swift in Sources */,
 				2897162C2512657C00D18C54 /* ASDrawerView+Set.swift in Sources */,
 				2897162E2512657C00D18C54 /* ASDrawerView+Enum.swift in Sources */,
 				020266C888DDEF7CB3E30FF65F75EFDD /* ASDrawerView-dummy.m in Sources */,

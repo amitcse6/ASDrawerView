@@ -14,7 +14,7 @@ extension ASDrawerView {
     func loadConstraint() {
         storeBack = UIView()
         addSubview(storeBack.unsafelyUnwrapped)
-        storeBack?.translatesAutoresizingMaskIntoConstraints = false
+        storeBack?.asd_deactivateAllConstraints()
         storeBack?.topAnchor.constraint(equalTo: topAnchor).isActive = true
         storeBack?.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         storeBack?.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
@@ -45,33 +45,40 @@ extension ASDrawerView {
 @available(iOS 9.0, *)
 extension ASDrawerView {
     func loadBackgroundView(completionBlock: @escaping () -> Void) {
+        removeBackgroundView {}
         storeBack?.addSubview(backgroundView.unsafelyUnwrapped)
-        backgroundView?.isUserInteractionEnabled = true
-        backgroundView?.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView?.asd_deactivateAllConstraints()
         backgroundView?.topAnchor.constraint(equalTo: topAnchor).isActive = true
         backgroundView?.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         backgroundView?.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         backgroundView?.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchBackgroundView(_:)))
+        tap.delegate = self
         backgroundView?.addGestureRecognizer(tap)
         completionBlock()
     }
     
     func loadCenterVC(completionBlock: @escaping () -> Void) {
+        removeCenterVC {}
         storeBack?.addSubview(centerVC.unsafelyUnwrapped.view)
         centerVC?.view.translatesAutoresizingMaskIntoConstraints = false
         centerVC?.view.topAnchor.constraint(equalTo: storeBack.unsafelyUnwrapped.topAnchor).isActive = true
         centerVC?.view.leftAnchor.constraint(equalTo: storeBack.unsafelyUnwrapped.leftAnchor).isActive = true
         centerVC?.view.rightAnchor.constraint(equalTo: storeBack.unsafelyUnwrapped.rightAnchor).isActive = true
         centerVC?.view.bottomAnchor.constraint(equalTo: storeBack.unsafelyUnwrapped.bottomAnchor).isActive = true
+        
+        let edgeGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(userSwipedFromEdge(gesture:)))
+        edgeGestureRecognizer.edges = UIRectEdge.left
+        edgeGestureRecognizer.delegate = self
+        (delegate as? UIViewController)?.view.addGestureRecognizer(edgeGestureRecognizer)
         completionBlock()
     }
     
     func loadLeftVC(completionBlock: @escaping () -> Void) {
+        removeLeftVC {}
         storeBack?.addSubview(leftVC.unsafelyUnwrapped.view)
-        leftVC?.view.isUserInteractionEnabled = true
-        leftVC?.view.translatesAutoresizingMaskIntoConstraints = false
+        leftVC?.view.asd_deactivateAllConstraints()
         leftVC?.view.topAnchor.constraint(equalTo: storeBack.unsafelyUnwrapped.topAnchor).isActive = true
         leftVCRightAnchor = leftVC?.view.rightAnchor.constraint(equalTo: storeBack.unsafelyUnwrapped.leftAnchor)
         leftVCRightAnchor?.isActive = true
@@ -88,9 +95,9 @@ extension ASDrawerView {
     }
     
     func loadRightVC(completionBlock: @escaping () -> Void) {
+        removeRightVC {}
         storeBack?.addSubview(rightVC.unsafelyUnwrapped.view)
-        rightVC?.view.isUserInteractionEnabled = true
-        rightVC?.view.translatesAutoresizingMaskIntoConstraints = false
+        rightVC?.view.asd_deactivateAllConstraints()
         rightVC?.view.topAnchor.constraint(equalTo: storeBack.unsafelyUnwrapped.topAnchor).isActive = true
         rightVCLeftAnchor = rightVC?.view.leftAnchor.constraint(equalTo: storeBack.unsafelyUnwrapped.rightAnchor)
         rightVCLeftAnchor?.isActive = true
@@ -98,6 +105,7 @@ extension ASDrawerView {
         rightVC?.view.widthAnchor.constraint(equalToConstant: rightWidth).isActive = true
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchRightView(_:)))
+        tap.delegate = self
         rightVC?.view.addGestureRecognizer(tap)
         completionBlock()
     }

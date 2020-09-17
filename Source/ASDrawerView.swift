@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
+public protocol ASDrawerViewDelegate {
+}
+
 public class ASDrawerView: UIView {
+    public var delegate: ASDrawerViewDelegate? 
+    
     public var storeBack: UIView?
     public var leftVC: UIViewController?
     public var centerVC: UIViewController?
