@@ -28,6 +28,25 @@ extension ASDrawerView {
         backgroundView?.removeFromSuperview()
         completionBlock()
     }
+    func removeVC(direction: ASDrawerDirection, completionBlock: @escaping () -> Void) {
+        switch direction {
+        case .center:
+            removeCenterVC {
+                completionBlock()
+            }
+            break
+        case .left:
+            removeLeftVC {
+                completionBlock()
+            }
+            break
+        case .right:
+            removeRightVC {
+                completionBlock()
+            }
+            break
+        }
+    }
     func removeCenterVC(completionBlock: @escaping () -> Void) {
         centerVC?.view.removeFromSuperview()
         completionBlock()
@@ -44,7 +63,7 @@ extension ASDrawerView {
 
 @available(iOS 9.0, *)
 extension ASDrawerView {
-    func loadBackgroundView(completionBlock: @escaping () -> Void) {
+    func loadBackgroundView(direction: ASDrawerDirection, completionBlock: @escaping () -> Void) {
         removeBackgroundView {}
         storeBack?.addSubview(backgroundView.unsafelyUnwrapped)
         backgroundView?.translatesAutoresizingMaskIntoConstraints = false
@@ -53,11 +72,41 @@ extension ASDrawerView {
         backgroundView?.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         backgroundView?.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchBackgroundView(_:)))
-        tap.delegate = self
-        backgroundView?.addGestureRecognizer(tap)
-        
+        switch direction {
+        case .center:
+            break
+        case .left:
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchBackgroundForLeftDrawer(_:)))
+            tap.delegate = self
+            backgroundView?.addGestureRecognizer(tap)
+            break
+        case .right:
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchBackgroundForRightDrawer(_:)))
+            tap.delegate = self
+            backgroundView?.addGestureRecognizer(tap)
+            break
+        }
         completionBlock()
+    }
+    
+    func loadVC(direction: ASDrawerDirection, completionBlock: @escaping () -> Void) {
+        switch direction {
+        case .center:
+            loadCenterVC {
+                completionBlock()
+            }
+            break
+        case .left:
+            loadLeftVC {
+                completionBlock()
+            }
+            break
+        case .right:
+            loadRightVC {
+                completionBlock()
+            }
+            break
+        }
     }
     
     func loadCenterVC(completionBlock: @escaping () -> Void) {
@@ -79,11 +128,11 @@ extension ASDrawerView {
         leftVCRightAnchor?.isActive = true
         leftVC?.view.bottomAnchor.constraint(equalTo: storeBack.unsafelyUnwrapped.bottomAnchor).isActive = true
         leftVC?.view.widthAnchor.constraint(equalToConstant: leftWidth).isActive = true
-
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchLeftView(_:)))
         leftVC?.view.addGestureRecognizer(tap)
-
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+        
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanLeftDrawer(_:)))
         gesture.delegate = self
         leftVC?.view.addGestureRecognizer(gesture)
         completionBlock()
@@ -102,6 +151,10 @@ extension ASDrawerView {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchRightView(_:)))
         tap.delegate = self
         rightVC?.view.addGestureRecognizer(tap)
+        
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanRightDrawer(_:)))
+        gesture.delegate = self
+        rightVC?.view.addGestureRecognizer(gesture)
         completionBlock()
     }
 }

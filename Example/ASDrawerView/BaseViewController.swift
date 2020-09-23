@@ -10,6 +10,7 @@ import UIKit
 
 protocol BaseViewControllerDelegate {
     func menuAction(_ sender: Any)
+    func moreAction(_ sender: Any)
 }
 
 class BaseViewController: UIViewController {

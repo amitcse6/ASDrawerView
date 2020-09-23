@@ -13,6 +13,5 @@ import UIKit
 extension ASDrawerView {
     func initialize() {
         backgroundView = UIView()
-        backgroundView?.backgroundColor = backgroundHideColor
     }
 }

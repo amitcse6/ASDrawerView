@@ -40,6 +40,7 @@
 		C49D52712466511E332C952834C81FE1 /* FBSnapshotTestCasePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B1DEEBF6316A84D7413645212492FF /* FBSnapshotTestCasePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0E202BE7F48556FC5E75E2171FF0A0 /* Pods-ASDrawerView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 09D14F92AE270CAB6BC9E428535CEDE7 /* Pods-ASDrawerView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D04AAC8B22E4A4DC4F39891C4E52F251 /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = 96187BF3038121CC146335E9FF0B0AFF /* UIImage+Diff.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D6496455251AFEEC008E005C /* ASDrawerView+GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6496454251AFEEC008E005C /* ASDrawerView+GestureRecognizer.swift */; };
 		E0B8D095C732352C854D365B9E5B993D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAA89EEF1039078430D7A886477E365 /* UIKit.framework */; };
 		E8AC509D18EBF21B1FEA909652A01108 /* FBSnapshotTestCasePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABB3EB3CCC5BCA82F40FE8DC87BB778 /* FBSnapshotTestCasePlatform.m */; };
 		E8C88872B29466C795E448AFB3687352 /* ASDrawerView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 92821691DE76C743765A63F7EC2290F4 /* ASDrawerView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -133,6 +134,7 @@
 		C9C1EB4035181DBB5BBB0ECE7E46D186 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CBFF6C5FD9C3A84274A9314D3E940B6E /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
 		D08CEBB9BDD9EF7A662ECFC0305C169E /* FBSnapshotTestCase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-prefix.pch"; sourceTree = "<group>"; };
+		D6496454251AFEEC008E005C /* ASDrawerView+GestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASDrawerView+GestureRecognizer.swift"; sourceTree = "<group>"; };
 		D872A3EE224412D4057C234FBC629F9C /* UIImage+Snapshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Snapshot.m"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.m"; sourceTree = "<group>"; };
 		E267D3AB17B8DAE0D6B6107FD14576F8 /* ASDrawerView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ASDrawerView.modulemap; sourceTree = "<group>"; };
 		E9AE84B5BF588F18791A1302FB58FD60 /* ASDrawerView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASDrawerView.debug.xcconfig; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				289716272512657C00D18C54 /* ASDrawerView+Enum.swift */,
 				289716282512657C00D18C54 /* ASDrawerView+Get.swift */,
 				289716292512657C00D18C54 /* ASDrawerView+Event.swift */,
+				D6496454251AFEEC008E005C /* ASDrawerView+GestureRecognizer.swift */,
 				2897162A2512657C00D18C54 /* ASDrawerView+Constraint.swift */,
 				2897162B2512657C00D18C54 /* ASDrawerView.swift */,
 				2881FB482512FDB900769BE8 /* ASDrawerView+UIView.swift */,
@@ -586,6 +589,7 @@
 				2897162C2512657C00D18C54 /* ASDrawerView+Set.swift in Sources */,
 				2897162E2512657C00D18C54 /* ASDrawerView+Enum.swift in Sources */,
 				020266C888DDEF7CB3E30FF65F75EFDD /* ASDrawerView-dummy.m in Sources */,
+				D6496455251AFEEC008E005C /* ASDrawerView+GestureRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,7 +699,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ASDrawerView/ASDrawerView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ASDrawerView/ASDrawerView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ASDrawerView/ASDrawerView.modulemap";
 				PRODUCT_MODULE_NAME = ASDrawerView;
@@ -793,7 +797,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ASDrawerView/ASDrawerView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ASDrawerView/ASDrawerView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ASDrawerView/ASDrawerView.modulemap";
 				PRODUCT_MODULE_NAME = ASDrawerView;

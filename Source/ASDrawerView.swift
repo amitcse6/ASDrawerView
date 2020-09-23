@@ -19,16 +19,12 @@ public class ASDrawerView: UIView {
     public var leftVC: UIViewController?
     public var centerVC: UIViewController?
     public var rightVC: UIViewController?
-    
     public var backgroundView: UIView?
     
     public var leftWidth: CGFloat = 300
     public var rightWidth: CGFloat = 300
     public var withDuration: TimeInterval = 0.2
     public var delay: TimeInterval = 0
-    public var backgroundHideColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0)
-    public var backgroundShowColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.5)
-    
     public var leftVCRightAnchor: NSLayoutConstraint?
     public var rightVCLeftAnchor: NSLayoutConstraint?
     

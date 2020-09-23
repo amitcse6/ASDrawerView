@@ -39,4 +39,7 @@ class CenterViewController: BaseViewController {
         self.delegate?.menuAction(sender)
     }
     
+    @IBAction func moreAction(_ sender: Any) {
+        self.delegate?.moreAction(sender)
+    }
 }

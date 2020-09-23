@@ -42,6 +42,11 @@ extension ViewController: ASDrawerViewDelegate {
 }
 
 extension ViewController: BaseViewControllerDelegate {
+    func moreAction(_ sender: Any) {
+        drawerView.setState(.open, direction: .right, animated: true, allowUserInterruption: true) {
+        }
+    }
+    
     func menuAction(_ sender: Any) {
         drawerView.open {
         }
